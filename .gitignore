@@ -11,3 +11,4 @@ obj
 *.nupkg
 /nuget/**/lib/**
 /bin/**
+packages

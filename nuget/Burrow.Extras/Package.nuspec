@@ -17,7 +17,7 @@
     <tags>Burrow Burrow.NET RabbitMQ RabbitMQ-client AMQP Burrow.Extras</tags>
     <dependencies>		
 		<dependency id="Internal.Burrow.NET" version="1.0.0" />
-		<dependency id="Newtonsoft.Json" version="4.5.9" />
+		<dependency id="Newtonsoft.Json" version="4.5.11" />
     </dependencies>
   </metadata>
 </package>
