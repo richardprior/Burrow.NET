@@ -128,7 +128,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY /Y "$(TargetPath)" "$(SolutionDir)..\nuget\Burrow.Extras\lib\net40\"
+    <PostBuildEvent>MKDIR "$(SolutionDir)..\nuget\Burrow.Extras\lib\net40"
+MKDIR "$(SolutionDir)..\bin\Burrow.Extras\net40"
+COPY /Y "$(TargetPath)" "$(SolutionDir)..\nuget\Burrow.Extras\lib\net40\"
 COPY /Y "$(TargetPath)" "$(SolutionDir)..\bin\Burrow.Extras\net40\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
