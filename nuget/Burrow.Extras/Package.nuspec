@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Burrow.Extras</id>
+    <id>Internal.Burrow.Extras</id>
     <version>1.0.16</version>
     <authors>Van Thoai Nguyen</authors>
     <owners>Van Thoai Nguyen</owners>
