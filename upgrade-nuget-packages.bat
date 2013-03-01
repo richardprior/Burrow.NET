@@ -1,0 +1,1 @@
+"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" -NonInteractive -executionpolicy Unrestricted -command "& { & '.\upgrade-nuget-packages.ps1' }"
