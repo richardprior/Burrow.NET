@@ -9,3 +9,5 @@ obj
 *.user
 *.pdb
 *.nupkg
+/nuget/**/lib/**
+/bin/**
