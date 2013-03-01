@@ -1,10 +1,10 @@
 del Burrow.*.nupkg
 
 SETLOCAL
-SET VERSION=1.0.16
+SET VERSION=0.0.1
 
-nuget pack Burrow\Package.nuspec -Version %VERSION%
-nuget pack Burrow.Extras\Package.nuspec -Version %VERSION%
-nuget pack Burrow.RPC\Package.nuspec -Version %VERSION%
+Nuget\nuget pack Burrow\Package.nuspec -Version %VERSION%
+Nuget\nuget pack Burrow.Extras\Package.nuspec -Version %VERSION%
+Nuget\nuget pack Burrow.RPC\Package.nuspec -Version %VERSION%
 ENDLOCAL
 pause
