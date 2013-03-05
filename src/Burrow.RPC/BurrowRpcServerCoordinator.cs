@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using RabbitMQ.Client;
 
 namespace Burrow.RPC
@@ -104,6 +105,18 @@ namespace Burrow.RPC
                 }
                 response.ChangedParams = msg.Params;
 
+            }
+            catch (TargetInvocationException ex)
+            {
+                // Unwrap the original exception
+                if (ex.InnerException != null)
+                {
+                    response.Exception = ex.InnerException;
+                    response.Exception.Data["UnwrappedExceptionType"] = ex.GetType().Name;
+                    response.Exception.Data["UnwrappedExceptionMessage"] = ex.Message;
+                }
+                else
+                    response.Exception = ex;
             }
             catch (Exception ex)
             {
