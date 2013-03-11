@@ -209,12 +209,12 @@ namespace Burrow
             }
         }
 
-        public void Publish<T>(T rabbit)
+        public void Publish<T>(T rabbit, Action<IBasicProperties> configure = null)
         {
-            Publish(rabbit, _routeFinder.FindRoutingKey<T>());
+            Publish(rabbit, _routeFinder.FindRoutingKey<T>(), configure);
         }
 
-        public virtual void Publish<T>(T rabbit, string routingKey)
+        public virtual void Publish<T>(T rabbit, string routingKey, Action<IBasicProperties> configure = null)
         {
             lock (_tunnelGate)
             {
@@ -224,7 +224,10 @@ namespace Burrow
             try
             {
                 byte[] msgBody = _serializer.Serialize(rabbit);
-                IBasicProperties properties = CreateBasicPropertiesForPublish<T>();
+                var properties = CreateBasicPropertiesForPublish<T>();
+                if (configure != null)
+                    configure(properties);
+
                 var exchangeName = _routeFinder.FindExchangeName<T>();
                 lock (_tunnelGate)
                 {

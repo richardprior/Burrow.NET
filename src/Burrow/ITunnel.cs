@@ -1,4 +1,5 @@
 ﻿using System;
+using RabbitMQ.Client;
 
 namespace Burrow
 {
@@ -15,9 +16,9 @@ namespace Burrow
 
         bool IsOpened { get; }
 
-        void Publish<T>(T rabbit);
+        void Publish<T>(T rabbit, Action<IBasicProperties> configure = null);
 
-        void Publish<T>(T rabbit, string routingKey);
+        void Publish<T>(T rabbit, string routingKey, Action<IBasicProperties> configure = null);
         
         /// <summary>
         /// Subscribe to queue by using subscriptionName, the message will be automatically acked once the callback executed
